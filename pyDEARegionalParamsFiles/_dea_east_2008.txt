@@ -1,0 +1,17 @@
+<ABS_WEIGHT_RESTRICTIONS> {}
+                    <DATA_FILE> {pyDEARegionalInputFiles/East/_dea_east_2008.xls}
+                    <USE_SUPER_EFFICIENCY> {}
+                    <OUTPUT_CATEGORIES> {GDP}
+                    <NON_DISCRETIONARY_CATEGORIES> {}
+                    <OUTPUT_FILE> {pyDEARegionalOutputFiles/East/out_dea_east_2008.xls}
+                    <CATEGORICAL_CATEGORY> {}
+                    <VIRTUAL_WEIGHT_RESTRICTIONS> {}
+                    <PRICE_RATIO_RESTRICTIONS> {}
+                    <WEAKLY_DISPOSAL_CATEGORIES> {}
+                    <MULTIPLIER_MODEL_TOLERANCE> {0}
+                    <MAXIMIZE_SLACKS> {}
+                    <INPUT_CATEGORIES> {CAPITAL;CO2;WORK}
+                    <PEEL_THE_ONION> {}
+                    <RETURN_TO_SCALE> {both}
+                    <DEA_FORM> {env}
+                    <ORIENTATION> {input}

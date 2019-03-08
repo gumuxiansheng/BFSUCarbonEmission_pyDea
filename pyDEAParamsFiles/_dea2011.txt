@@ -1,0 +1,17 @@
+<ABS_WEIGHT_RESTRICTIONS> {}
+                <DATA_FILE> {pyDEAInputFiles/_dea2011.xls}
+                <USE_SUPER_EFFICIENCY> {}
+                <OUTPUT_CATEGORIES> {GDP}
+                <NON_DISCRETIONARY_CATEGORIES> {}
+                <OUTPUT_FILE> {pyDEAOutputFiles/out_dea2011.xls}
+                <CATEGORICAL_CATEGORY> {}
+                <VIRTUAL_WEIGHT_RESTRICTIONS> {}
+                <PRICE_RATIO_RESTRICTIONS> {}
+                <WEAKLY_DISPOSAL_CATEGORIES> {}
+                <MULTIPLIER_MODEL_TOLERANCE> {0}
+                <MAXIMIZE_SLACKS> {}
+                <INPUT_CATEGORIES> {CAPITAL;CO2;WORK}
+                <PEEL_THE_ONION> {}
+                <RETURN_TO_SCALE> {both}
+                <DEA_FORM> {env}
+                <ORIENTATION> {input}
