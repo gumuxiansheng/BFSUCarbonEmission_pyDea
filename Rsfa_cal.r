@@ -19,7 +19,7 @@ library(frontier)
 #   sink()
 # }
 
-year <- 2016
+year <- 2014
 data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
 sfa_data_co2 <- sfa( Slack_CO2 ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
 sfa_data_capital <- sfa( Slack_CAPITAL ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
