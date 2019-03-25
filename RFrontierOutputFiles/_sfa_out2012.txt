@@ -1,0 +1,87 @@
+--------2012---------
+
+**CO2**
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 5 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+                         Estimate  Std. Error     z value  Pr(>|z|)    
+(Intercept)           -2.2859e+04  1.0033e+00 -2.2783e+04 < 2.2e-16 ***
+Urbanization           1.7504e+05  1.0005e+00  1.7496e+05 < 2.2e-16 ***
+Secondary_Industry    -1.2745e+05  1.0004e+00 -1.2739e+05 < 2.2e-16 ***
+Capita_GDP            -9.6057e-01  1.0594e-01 -9.0674e+00 < 2.2e-16 ***
+Environmental_Support  2.8562e+06  1.0000e+00  2.8562e+06 < 2.2e-16 ***
+Coal_Consume           8.6083e+02  1.0014e+00  8.5962e+02 < 2.2e-16 ***
+sigmaSq                8.8822e+08  1.0000e+00  8.8822e+08 < 2.2e-16 ***
+gamma                  7.8539e-01  1.4805e-01  5.3050e+00 1.127e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+log likelihood value: -341.42 
+
+cross-sectional data
+total number of observations = 30 
+
+mean efficiency: NaN 
+
+**Capital**
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 85 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+                         Estimate  Std. Error     z value  Pr(>|z|)    
+(Intercept)           -5.9778e+03  1.1734e+03 -5.0942e+00 3.502e-07 ***
+Urbanization           3.2871e+04  3.9715e+02  8.2768e+01 < 2.2e-16 ***
+Secondary_Industry    -2.3023e+04  4.6317e+02 -4.9707e+01 < 2.2e-16 ***
+Capita_GDP            -1.3493e-01  6.8317e-02 -1.9751e+00   0.04825 *  
+Environmental_Support  7.0794e+05  2.6026e+01  2.7202e+04 < 2.2e-16 ***
+Coal_Consume          -6.8747e+02  8.3859e+02 -8.1980e-01   0.41233    
+sigmaSq                6.8818e+07  1.0198e+00  6.7480e+07 < 2.2e-16 ***
+gamma                  9.4903e-01  1.1530e-01  8.2311e+00 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+log likelihood value: -301.2544 
+
+cross-sectional data
+total number of observations = 30 
+
+mean efficiency: NaN 
+
+**Labour**
+
+Efficiency Effects Frontier (see Battese & Coelli 1995)
+Inefficiency decreases the endogenous variable (as in a production function)
+The dependent variable is logged
+Iterative ML estimation terminated after 5 iterations:
+log likelihood values and parameters of two successive iterations
+are within the tolerance limit
+
+final maximum likelihood estimates
+                         Estimate  Std. Error     z value Pr(>|z|)    
+(Intercept)           -2.5730e+03  1.0000e+00 -2.5730e+03   <2e-16 ***
+Urbanization           5.5070e+03  1.0000e+00  5.5070e+03   <2e-16 ***
+Secondary_Industry    -7.0907e+03  1.0000e+00 -7.0907e+03   <2e-16 ***
+Capita_GDP             6.3759e-03  7.6497e-03  8.3350e-01   0.4046    
+Environmental_Support  2.7047e+05  1.0000e+00  2.7047e+05   <2e-16 ***
+Coal_Consume           7.1280e+02  1.0000e+00  7.1279e+02   <2e-16 ***
+sigmaSq                4.0347e+06  1.0000e+00  4.0347e+06   <2e-16 ***
+gamma                  1.0000e+00  1.9882e-05  5.0296e+04   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+log likelihood value: -252.0469 
+
+cross-sectional data
+total number of observations = 30 
+
+mean efficiency: 0.01655625 
+--------2012 END---------
+
