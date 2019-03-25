@@ -29,10 +29,10 @@ def generate_sfa_input():
         new_table = xlcopy(table)
         ws = new_table.get_sheet(0)
 
-        ws.write(0, 6, 'Slack CO2')
-        ws.write(0, 7, 'Slack WORK')
-        ws.write(0, 8, 'Slack CAPITAL')
-        ws.write(0, 9, 'Slack GDP')
+        ws.write(0, 6, 'Slack_CO2')
+        ws.write(0, 7, 'Slack_WORK')
+        ws.write(0, 8, 'Slack_CAPITAL')
+        ws.write(0, 9, 'Slack_GDP')
 
         for one_row in range(1, 32):
             row = one_row
