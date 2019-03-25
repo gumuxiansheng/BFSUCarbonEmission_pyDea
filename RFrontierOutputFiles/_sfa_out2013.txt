@@ -18,7 +18,14 @@ Capita_GDP            -8.0538e-01  9.6176e-02 -8.3741e+00 < 2.2e-16 ***
 Environmental_Support  1.7986e+06  1.0000e+00  1.7986e+06 < 2.2e-16 ***
 Coal_Consume           1.9658e+03  1.0009e+00  1.9640e+03 < 2.2e-16 ***
 sigmaSq                1.1109e+09  1.0000e+00  1.1109e+09 < 2.2e-16 ***
-gamma                  8.5771e-01  1.0564e-01  8.1195e+00  4.68e-16 ***
+gamma                  8.5770e-01  1.0563e-01  8.1195e+00  4.68e-16 ***
+sigmaSqU               9.5285e+08  1.1735e+08  8.1195e+00  4.68e-16 ***
+sigmaSqV               1.5808e+08  1.1735e+08  1.3470e+00  0.177964    
+sigma                  3.3331e+04  1.5001e-05  2.2219e+09 < 2.2e-16 ***
+sigmaU                 3.0868e+04  1.9009e+03  1.6239e+01 < 2.2e-16 ***
+sigmaV                 1.2573e+04  4.6669e+03  2.6941e+00  0.007058 ** 
+lambdaSq               6.0276e+00  5.2171e+00  1.1554e+00  0.247938    
+lambda                 2.4551e+00  1.0625e+00  2.3107e+00  0.020847 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 log likelihood value: -342.7664 
@@ -47,6 +54,13 @@ Environmental_Support  5.4671e+05  2.1392e+01  2.5556e+04 < 2.2e-16 ***
 Coal_Consume           6.4415e+02  5.3171e+02  1.2115e+00    0.2257    
 sigmaSq                9.6510e+07  1.0076e+00  9.5784e+07 < 2.2e-16 ***
 gamma                  9.6955e-01  6.8431e-02  1.4168e+01 < 2.2e-16 ***
+sigmaSqU               9.3572e+07  6.6043e+06  1.4168e+01 < 2.2e-16 ***
+sigmaSqV               2.9386e+06  6.6043e+06  4.4490e-01    0.6564    
+sigma                  9.8240e+03  5.1282e-05  1.9157e+08 < 2.2e-16 ***
+sigmaU                 9.6732e+03  3.4137e+02  2.8337e+01 < 2.2e-16 ***
+sigmaV                 1.7142e+03  1.9263e+03  8.8990e-01    0.3735    
+lambdaSq               3.1843e+01  7.3812e+01  4.3140e-01    0.6662    
+lambda                 5.6429e+00  6.5402e+00  8.6280e-01    0.3882    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 log likelihood value: -305.0129 
@@ -66,15 +80,22 @@ log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
-                         Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)           -2.1495e+03  9.9999e-01   -2149.492 < 2.2e-16 ***
-Urbanization           6.7583e+03  1.0000e+00    6758.331 < 2.2e-16 ***
-Secondary_Industry    -8.6693e+03  1.0000e+00   -8669.359 < 2.2e-16 ***
-Capita_GDP            -5.3545e-03  3.4851e-04     -15.364 < 2.2e-16 ***
-Environmental_Support  1.7909e+05  1.0000e+00  179085.042 < 2.2e-16 ***
-Coal_Consume           1.9943e+03  9.9999e-01    1994.345 < 2.2e-16 ***
-sigmaSq                4.8035e+06  1.0000e+00 4803511.921 < 2.2e-16 ***
-gamma                  1.0000e+00  3.0583e-06  326978.639 < 2.2e-16 ***
+                         Estimate  Std. Error     z value Pr(>|z|)    
+(Intercept)           -2.1495e+03  9.9999e-01 -2.1495e+03   <2e-16 ***
+Urbanization           6.7583e+03  1.0000e+00  6.7583e+03   <2e-16 ***
+Secondary_Industry    -8.6693e+03  1.0000e+00 -8.6694e+03   <2e-16 ***
+Capita_GDP            -5.3545e-03  3.4851e-04 -1.5364e+01   <2e-16 ***
+Environmental_Support  1.7909e+05  1.0000e+00  1.7909e+05   <2e-16 ***
+Coal_Consume           1.9943e+03  9.9999e-01  1.9943e+03   <2e-16 ***
+sigmaSq                4.8035e+06  1.0000e+00  4.8035e+06   <2e-16 ***
+gamma                  1.0000e+00  3.0583e-06  3.2698e+05   <2e-16 ***
+sigmaSqU               4.8035e+06  1.4725e+01  3.2622e+05   <2e-16 ***
+sigmaSqV               1.0783e+00  1.4691e+01  7.3400e-02   0.9415    
+sigma                  2.1917e+03  2.2813e-04  9.6070e+06   <2e-16 ***
+sigmaU                 2.1917e+03  3.3592e-03  6.5245e+05   <2e-16 ***
+sigmaV                 1.0384e+00  7.0735e+00  1.4680e-01   0.8833    
+lambdaSq               4.4546e+06  6.0686e+07  7.3400e-02   0.9415    
+lambda                 2.1106e+03  1.4377e+04  1.4680e-01   0.8833    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 log likelihood value: -255.1922 

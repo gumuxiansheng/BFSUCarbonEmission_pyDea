@@ -19,6 +19,13 @@ Environmental_Support  2.8562e+06  1.0000e+00  2.8562e+06 < 2.2e-16 ***
 Coal_Consume           8.6083e+02  1.0014e+00  8.5962e+02 < 2.2e-16 ***
 sigmaSq                8.8822e+08  1.0000e+00  8.8822e+08 < 2.2e-16 ***
 gamma                  7.8539e-01  1.4805e-01  5.3050e+00 1.127e-07 ***
+sigmaSqU               6.9760e+08  1.3150e+08  5.3050e+00 1.127e-07 ***
+sigmaSqV               1.9062e+08  1.3150e+08  1.4496e+00  0.147171    
+sigma                  2.9803e+04  1.6777e-05  1.7764e+09 < 2.2e-16 ***
+sigmaU                 2.6412e+04  2.4894e+03  1.0610e+01 < 2.2e-16 ***
+sigmaV                 1.3807e+04  4.7622e+03  2.8992e+00  0.003741 ** 
+lambdaSq               3.6596e+00  3.2144e+00  1.1385e+00  0.254912    
+lambda                 1.9130e+00  8.4015e-01  2.2770e+00  0.022786 *  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 log likelihood value: -341.42 
@@ -33,23 +40,30 @@ mean efficiency: NaN
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 85 iterations:
+Iterative ML estimation terminated after 44 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
                          Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)           -5.9778e+03  1.1734e+03 -5.0942e+00 3.502e-07 ***
-Urbanization           3.2871e+04  3.9715e+02  8.2768e+01 < 2.2e-16 ***
-Secondary_Industry    -2.3023e+04  4.6317e+02 -4.9707e+01 < 2.2e-16 ***
-Capita_GDP            -1.3493e-01  6.8317e-02 -1.9751e+00   0.04825 *  
-Environmental_Support  7.0794e+05  2.6026e+01  2.7202e+04 < 2.2e-16 ***
-Coal_Consume          -6.8747e+02  8.3859e+02 -8.1980e-01   0.41233    
-sigmaSq                6.8818e+07  1.0198e+00  6.7480e+07 < 2.2e-16 ***
-gamma                  9.4903e-01  1.1530e-01  8.2311e+00 < 2.2e-16 ***
+(Intercept)           -6.1012e+03  1.3602e+03 -4.4854e+00 7.278e-06 ***
+Urbanization           3.2813e+04  5.8800e+02  5.5804e+01 < 2.2e-16 ***
+Secondary_Industry    -2.2997e+04  4.1835e+02 -5.4971e+01 < 2.2e-16 ***
+Capita_GDP            -1.2972e-01  6.7695e-02 -1.9162e+00   0.05534 .  
+Environmental_Support  7.0793e+05  5.4508e+01  1.2988e+04 < 2.2e-16 ***
+Coal_Consume          -6.8315e+02  6.3189e+02 -1.0811e+00   0.27964    
+sigmaSq                6.8818e+07  1.1224e+00  6.1313e+07 < 2.2e-16 ***
+gamma                  9.5769e-01  1.1093e-01  8.6334e+00 < 2.2e-16 ***
+sigmaSqU               6.5906e+07  7.6339e+06  8.6334e+00 < 2.2e-16 ***
+sigmaSqV               2.9116e+06  7.6339e+06  3.8140e-01   0.70290    
+sigma                  8.2957e+03  6.7650e-05  1.2263e+08 < 2.2e-16 ***
+sigmaU                 8.1183e+03  4.7017e+02  1.7267e+01 < 2.2e-16 ***
+sigmaV                 1.7064e+03  2.2369e+03  7.6280e-01   0.44557    
+lambdaSq               2.2635e+01  6.1969e+01  3.6530e-01   0.71491    
+lambda                 4.7577e+00  6.5125e+00  7.3050e-01   0.46506    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -301.2544 
+log likelihood value: -301.2482 
 
 cross-sectional data
 total number of observations = 30 
@@ -75,6 +89,13 @@ Environmental_Support  2.7047e+05  1.0000e+00  2.7047e+05   <2e-16 ***
 Coal_Consume           7.1280e+02  1.0000e+00  7.1279e+02   <2e-16 ***
 sigmaSq                4.0347e+06  1.0000e+00  4.0347e+06   <2e-16 ***
 gamma                  1.0000e+00  1.9882e-05  5.0296e+04   <2e-16 ***
+sigmaSqU               4.0347e+06  8.0225e+01  5.0292e+04   <2e-16 ***
+sigmaSqV               4.0347e-02  8.0219e+01  5.0000e-04   0.9996    
+sigma                  2.0087e+03  2.4892e-04  8.0694e+06   <2e-16 ***
+sigmaU                 2.0087e+03  1.9970e-02  1.0058e+05   <2e-16 ***
+sigmaV                 2.0087e-01  1.9968e+02  1.0000e-03   0.9992    
+lambdaSq               1.0000e+08  1.9882e+11  5.0000e-04   0.9996    
+lambda                 1.0000e+04  9.9411e+06  1.0000e-03   0.9992    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 log likelihood value: -252.0469 

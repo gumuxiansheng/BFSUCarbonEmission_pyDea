@@ -1,38 +1,41 @@
 library(readxl)
 library(frontier)
 
-# There's something wrong when run this for.
-# for (year in 2006:2016) {
-#   data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
-#   sfa_data_co2 <- sfa( Slack_CO2 ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
-#   sfa_data_capital <- sfa( Slack_CAPITAL ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
-#   sfa_data_work <- sfa( Slack_WORK ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
-#   
-#   sink(paste('RFrontierOutputFiles/_sfa_out', year, '.txt', sep = ""))
-#   cat(paste('--------', year, '---------\n\n**CO2**\n\n', sep = ""))
-#   summary(sfa_data_co2, extraPar=FALSE)
-#   cat('**Capital**\n\n')
-#   summary(sfa_data_capital, extraPar=FALSE)
-#   cat('**Labour**\n\n')
-#   summary(sfa_data_work, extraPar=FALSE)
-#   cat(paste('--------', year, ' END---------\n\n', sep = ""))
-#   sink()
-# }
+for (year in 2006:2016) {
+  data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
+  sfa_data_co2 <- sfa( Slack_CO2 ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
+  sfa_data_capital <- sfa( Slack_CAPITAL ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
+  sfa_data_work <- sfa( Slack_WORK ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
 
-year <- 2016
+  sink(paste('RFrontierOutputFiles/_sfa_out_xx', year, '.txt', sep = ""))
+  cat(paste('--------', year, '---------\n\n**CO2**\n\n', sep = ""))
+  print(sfa_data_co2['fitted'][1])
+  print(sfa_data_co2['resid'][1])
+  cat('**Capital**\n\n')
+  print(sfa_data_capital['fitted'][1])
+  print(sfa_data_capital['resid'][1])
+  cat('**Labour**\n\n')
+  print(sfa_data_work['fitted'][1])
+  print(sfa_data_work['resid'][1])
+  cat(paste('--------', year, ' END---------\n\n', sep = ""))
+  sink()
+}
+
+# There's something wrong when run this for.
+year <- 2006
 data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
 sfa_data_co2 <- sfa( Slack_CO2 ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
 sfa_data_capital <- sfa( Slack_CAPITAL ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
 sfa_data_work <- sfa( Slack_WORK ~ Urbanization + Secondary_Industry + Capita_GDP + Environmental_Support + Coal_Consume | -1, data = data1 )
 
 sink(paste('RFrontierOutputFiles/_sfa_out', year, '.txt', sep = ""))
-cat(paste('--------', year, '---------\n\n**CO2**\n\n', sep = ""))
-summary(sfa_data_co2, extraPar=FALSE)
+cat(paste('********', year, '********\n\n**CO2**\n\n', sep = ""))
+summary(sfa_data_co2, extraPar=TRUE)
 cat('\n**Capital**\n\n')
-summary(sfa_data_capital, extraPar=FALSE)
+summary(sfa_data_capital, extraPar=TRUE)
 cat('\n**Labour**\n\n')
-summary(sfa_data_work, extraPar=FALSE)
-cat(paste('--------', year, ' END---------\n\n', sep = ""))
+summary(sfa_data_work, extraPar=TRUE)
+cat(paste('********', year, ' END********\n\n', sep = ""))
 sink()
 
 0.9711547+0.3419829*log(17413.769)-0.0221989*log(11193.066)+0.7370436*log(1220.10)
@@ -50,6 +53,10 @@ sigmauv2 <- sigmav2+sigmau2
 # mustar <- -epsilon*sigmau2/sigmauv2
 sigmastar2 <- sigmav2*sigmau2/sigmauv2
 (1-dnorm(sigmastar2^0.5-mustar/(sigmastar2^0.5)))/(1-dnorm(-mustar/(sigmastar2^0.5)))*exp(-mustar+0.5*sigmastar2)
+
+print(sfa_data_co2['resid'][1])
+print(sfa_data_co2['fitted'][1])
+
 
 epsilon_ <- 0.286
 lambda_<-1.137766
