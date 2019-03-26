@@ -3,6 +3,8 @@
 import xlwt
 import xlrd
 from xlutils.copy import copy as xlcopy
+from scipy.stats import norm
+import numpy as np
 
 
 def read_excel(file_url):
@@ -96,14 +98,14 @@ def sfa_result_xx_rearrange():
     return
 
 
-def generate_3rd_dea_input():
-    wb = xlrd.open_workbook(filename='RFrontierOutputFiles/sfa_results.xlsx')
+def generate_3rd_dea_input_cal():
+    wb = xlrd.open_workbook(filename='RFrontierOutputFiles/_sfa_out_xx.xls')
+    wbw = xlwt.Workbook(encoding='utf-8', style_compression=0)
     for year in range(0, 11):
         ac_year = 2016 - year
         table = wb.sheet_by_name(str(ac_year))
 
-        wbw = xlwt.Workbook(encoding='utf-8', style_compression=0)
-        ws = wbw.add_sheet('Carbon Emission', cell_overwrite_ok=True)
+        ws = wbw.add_sheet(str(ac_year), cell_overwrite_ok=True)
 
         ws.write(0, 1, 'CO2')
         ws.write(0, 2, 'CAPITAL')
@@ -120,46 +122,19 @@ def generate_3rd_dea_input():
             ws.write(row, 0, table2.cell_value(row, 0))
 
             # CO2
-            beta_0 = table.cell_value(13, 1)
-            beta_1 = table.cell_value(14, 1)
-            beta_2 = table.cell_value(15, 1)
-            beta_3 = table.cell_value(16, 1)
-            beta_4 = table.cell_value(17, 1)
-            beta_5 = table.cell_value(18, 1)
-
-            ex_value = beta_0 + beta_1 * table2.cell_value(row, 1) + beta_2 * table2.cell_value(row, 2) \
-                       + beta_3 * table2.cell_value(row, 3) + beta_4 * table2.cell_value(row, 4) \
-                       + beta_5 * table2.cell_value(row, 5)
+            ex_value = table.cell_value(5 + row - 1, 1)
             if ex_value > max_co2:
                 max_co2 = ex_value
             ws.write(row, 1, ex_value)
 
             # CAPITAL
-            beta_0 = table.cell_value(41, 1)
-            beta_1 = table.cell_value(42, 1)
-            beta_2 = table.cell_value(43, 1)
-            beta_3 = table.cell_value(44, 1)
-            beta_4 = table.cell_value(45, 1)
-            beta_5 = table.cell_value(46, 1)
-
-            ex_value = beta_0 + beta_1 * table2.cell_value(row, 1) + beta_2 * table2.cell_value(row, 2) \
-                       + beta_3 * table2.cell_value(row, 3) + beta_4 * table2.cell_value(row, 4) \
-                       + beta_5 * table2.cell_value(row, 5)
+            ex_value = table.cell_value(73 + row - 1, 1)
             if ex_value > max_capital:
                 max_capital = ex_value
             ws.write(row, 2, ex_value)
 
             # LABOUR
-            beta_0 = table.cell_value(69, 1)
-            beta_1 = table.cell_value(70, 1)
-            beta_2 = table.cell_value(71, 1)
-            beta_3 = table.cell_value(72, 1)
-            beta_4 = table.cell_value(73, 1)
-            beta_5 = table.cell_value(74, 1)
-
-            ex_value = beta_0 + beta_1 * table2.cell_value(row, 1) + beta_2 * table2.cell_value(row, 2) \
-                       + beta_3 * table2.cell_value(row, 3) + beta_4 * table2.cell_value(row, 4) \
-                       + beta_5 * table2.cell_value(row, 5)
+            ex_value = table.cell_value(141 + row - 1, 1)
             if ex_value > max_labour:
                 max_labour = ex_value
             ws.write(row, 3, ex_value)
@@ -168,5 +143,115 @@ def generate_3rd_dea_input():
         ws.write(1, 5, max_capital)
         ws.write(1, 6, max_labour)
 
-        wbw.save('RFrontierOutputFiles/_sfa_ex_' + str(ac_year) + '.xls')
+    wbw.save('RFrontierOutputFiles/_3rd_dea_input_cal.xls')  # 拟合值、残值信息
     return
+
+
+def cal_vi():
+    wbw = xlrd.open_workbook(filename='RFrontierOutputFiles/_sfa_out_xx.xls')  # 获取epsilon
+    wbw2 = xlrd.open_workbook(filename='RFrontierOutputFiles/_sfa_out.xls')  # 获取sigma and lambda
+
+    dst_file = xlrd.open_workbook(filename='RFrontierOutputFiles/_3rd_dea_input_cal.xls')  # 写入统一文件
+    dst_file_new = xlcopy(dst_file)
+    for year in range(0, 11):
+        ac_year = 2016 - year
+        table = wbw.sheet_by_name(str(ac_year))
+        table2 = wbw2.sheet_by_name(str(ac_year))
+        dst_ws = dst_file_new.get_sheet(str(ac_year))
+
+        dst_ws.write(0, 7, 'CO2_Vi')
+        dst_ws.write(0, 8, 'CAPITAL_Vi')
+        dst_ws.write(0, 9, 'LABOUR_Vi')
+        dst_ws.write(0, 10, 'CO2_Vi_MAX')
+        dst_ws.write(0, 11, 'CAPITAL_Vi_MAX')
+        dst_ws.write(0, 12, 'LABOUR_Vi_MAX')
+
+        max_co2 = -200000
+        max_capital = -200000
+        max_labour = -200000
+
+        print(str(ac_year))
+        for row in range(1, 31):
+            # CO2
+            epsilon_ = table.cell_value(38 + row - 1, 1)
+            sigma_ = table2.cell_value(19, 1)
+            lambda_ = table2.cell_value(23, 1)
+            norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
+            if np.isnan(norm_divide):
+                norm_divide = -epsilon_ * lambda_ / sigma_
+            ui = lambda_ * sigma_ / (1 + lambda_ ** 2) * (norm_divide + epsilon_ * lambda_ / sigma_)
+            vi = epsilon_ - ui
+            if vi > max_co2:
+                max_co2 = vi
+            dst_ws.write(row, 7, vi)
+
+            # CAPITAL
+            epsilon_ = table.cell_value(106 + row - 1, 1)
+            sigma_ = table2.cell_value(52, 1)
+            lambda_ = table2.cell_value(56, 1)
+            norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
+            if np.isnan(norm_divide):
+                norm_divide = -epsilon_ * lambda_ / sigma_
+            ui = lambda_ * sigma_ / (1 + lambda_ ** 2) * (norm_divide + epsilon_ * lambda_ / sigma_)
+            vi = epsilon_ - ui
+            if vi > max_capital:
+                max_capital = vi
+            dst_ws.write(row, 8, vi)
+
+            # LABOUR
+            epsilon_ = table.cell_value(174 + row - 1, 1)
+            sigma_ = table2.cell_value(85, 1)
+            lambda_ = table2.cell_value(89, 1)
+            norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
+            if np.isnan(norm_divide):
+                norm_divide = -epsilon_ * lambda_ / sigma_
+            ui = lambda_ * sigma_ / (1 + lambda_ ** 2) * (norm_divide + epsilon_ * lambda_ / sigma_)
+            vi = epsilon_ - ui
+            if vi > max_labour:
+                max_labour = vi
+            dst_ws.write(row, 9, vi)
+
+        dst_ws.write(1, 10, max_co2)
+        dst_ws.write(1, 11, max_capital)
+        dst_ws.write(1, 12, max_labour)
+
+    dst_file_new.save('RFrontierOutputFiles/_3rd_dea_input_cal.xls')
+    return
+
+
+def generate_adjusted_dea_input():
+    wb_fitted = xlrd.open_workbook(filename='RFrontierOutputFiles/_3rd_dea_input_cal.xls')  # 拟合值，残值信息
+    for year in range(0, 11):
+        ac_year = 2016 - year
+        wb = xlrd.open_workbook(filename='pyDEAInputFiles/_dea' + str(ac_year) + '.xls')
+        dst_file_new = xlcopy(wb)
+        sheet = dst_file_new.get_sheet(0)
+        read_sheet = wb.sheet_by_index(0)
+        sheet_fitted = wb_fitted.sheet_by_name(str(ac_year))
+
+        for row in range(1, 31):
+
+            # CO2
+            origin_value = read_sheet.cell_value(row, 3)
+            fitted_surplus = sheet_fitted.cell_value(1, 4) - sheet_fitted.cell_value(row, 1)
+            vi_surplus = sheet_fitted.cell_value(1, 10) - sheet_fitted.cell_value(row, 7)
+            adjusted_value = origin_value + fitted_surplus + vi_surplus
+            sheet.write(row, 3, adjusted_value)
+
+            # CAPITAL
+            origin_value = read_sheet.cell_value(row, 2)
+            fitted_surplus = sheet_fitted.cell_value(1, 5) - sheet_fitted.cell_value(row, 2)
+            vi_surplus = sheet_fitted.cell_value(1, 11) - sheet_fitted.cell_value(row, 8)
+            adjusted_value = origin_value + fitted_surplus + vi_surplus
+            sheet.write(row, 2, adjusted_value)
+
+            # CAPITAL
+            origin_value = read_sheet.cell_value(row, 4)
+            fitted_surplus = sheet_fitted.cell_value(1, 6) - sheet_fitted.cell_value(row, 3)
+            vi_surplus = sheet_fitted.cell_value(1, 12) - sheet_fitted.cell_value(row, 9)
+            adjusted_value = origin_value + fitted_surplus + vi_surplus
+            sheet.write(row, 4, adjusted_value)
+
+        dst_file_new.save('pyDEAThirdStageInputFiles/_dea' + str(ac_year) + '.xls')
+    return
+

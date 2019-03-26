@@ -66,16 +66,16 @@ def split():
         wb_west.save('pyDEARegionalInputFiles/West/_dea_west_' + str(year) + '.xls')
 
 
-def calculate():
-    input_files = os.listdir('pyDEAInputFiles/')
+def calculate(input_dir, output_dir):
+    input_files = os.listdir(input_dir)
     for index in range(0, input_files.__len__()):
         f = open('pyDEAParamsFiles/' + input_files[index].replace('.xls', '') + '.txt', 'w+')
         f.write('<ABS_WEIGHT_RESTRICTIONS> {}\n\
-                <DATA_FILE> {pyDEAInputFiles/' + input_files[index] + '}\n\
+                <DATA_FILE> {' + input_dir + input_files[index] + '}\n\
                 <USE_SUPER_EFFICIENCY> {}\n\
                 <OUTPUT_CATEGORIES> {GDP}\n\
                 <NON_DISCRETIONARY_CATEGORIES> {}\n\
-                <OUTPUT_FILE> {pyDEAOutputFiles/out' + input_files[index] + '}\n\
+                <OUTPUT_FILE> {' + output_dir + input_files[index] + '}\n\
                 <CATEGORICAL_CATEGORY> {}\n\
                 <VIRTUAL_WEIGHT_RESTRICTIONS> {}\n\
                 <PRICE_RATIO_RESTRICTIONS> {}\n\
@@ -91,6 +91,14 @@ def calculate():
         pyDEA.main.main('pyDEAParamsFiles/' + input_files[index].replace('.xls', '') + '.txt', output_format='xlsx')
 
     return
+
+
+def calculate_first_stage():
+    calculate('pyDEAInputFiles/', 'pyDEAOutputFiles/out')
+
+
+def calculate_third_stage():
+    calculate('pyDEAThirdStageInputFiles/', 'pyDEAThirdStageOutputFiles/out')
 
 
 def calculate_regional():
@@ -168,4 +176,45 @@ def arrange():
                 ws.write(row, index + 1, tables[index].cell_value(row, 1))
 
     wb.save('各省各年份碳排放效率对比表.xlsx')
+    return
+
+
+def last_arrange():
+    tables = []
+    for year in range(2006, 2017):
+        index = year - 2006
+        tables.append(read_table('pyDEAThirdStageOutputFiles/out_dea' + str(year) + '.xls'))
+        values1 = []
+        values2 = []
+        for row in range(0, 64):
+            if index == 0:
+                ws.write(row, 0, tables[index].cell_value(row, 0))
+
+            if row == 0:
+                ws.write(row, index + 1, str(year) + '年')
+            else:
+                value = tables[index].cell_value(row, 1)
+                ws.write(row, index + 1, value)
+                if isinstance(value, float):
+                    if row < 32:
+                        values1.append(value)
+                    else:
+                        values2.append(value)
+
+        values1 = sorted(values1, reverse=True)
+        values2 = sorted(values2, reverse=True)
+        for row in range(0, 64):
+            if row == 0:
+                ws.write(row, index + 12, str(year) + '年')
+            elif row == 1:
+                    ws.write(row, index + 12, 'Rank')
+            else:
+                value = tables[index].cell_value(row, 1)
+                if isinstance(value, float):
+                    if row < 32:
+                        ws.write(row, index + 12, values1.index(value) + 1)
+                    else:
+                        ws.write(row, index + 12, values2.index(value) + 1)
+
+    wb.save('三阶段各省各年份碳排放效率对比表.xls')
     return

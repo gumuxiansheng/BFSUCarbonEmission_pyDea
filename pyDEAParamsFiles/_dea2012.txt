@@ -1,9 +1,9 @@
 <ABS_WEIGHT_RESTRICTIONS> {}
-                <DATA_FILE> {pyDEAInputFiles/_dea2012.xls}
+                <DATA_FILE> {pyDEAThirdStageInputFiles/_dea2012.xls}
                 <USE_SUPER_EFFICIENCY> {}
                 <OUTPUT_CATEGORIES> {GDP}
                 <NON_DISCRETIONARY_CATEGORIES> {}
-                <OUTPUT_FILE> {pyDEAOutputFiles/out_dea2012.xls}
+                <OUTPUT_FILE> {pyDEAThirdStageOutputFiles/out_dea2012.xls}
                 <CATEGORICAL_CATEGORY> {}
                 <VIRTUAL_WEIGHT_RESTRICTIONS> {}
                 <PRICE_RATIO_RESTRICTIONS> {}
