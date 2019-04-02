@@ -172,19 +172,19 @@ def generate_3rd_dea_input_cal():
             ws.write(row, 0, table2.cell_value(row, 0))
 
             # CO2
-            ex_value = table.cell_value(5 + row - 1, 1)
+            ex_value = float(table.cell_value(5 + row - 1, 1))
             if ex_value > max_co2:
                 max_co2 = ex_value
             ws.write(row, 1, ex_value)
 
             # CAPITAL
-            ex_value = table.cell_value(73 + row - 1, 1)
+            ex_value = float(table.cell_value(73 + row - 1, 1))
             if ex_value > max_capital:
                 max_capital = ex_value
             ws.write(row, 2, ex_value)
 
             # LABOUR
-            ex_value = table.cell_value(141 + row - 1, 1)
+            ex_value = float(table.cell_value(141 + row - 1, 1))
             if ex_value > max_labour:
                 max_labour = ex_value
             ws.write(row, 3, ex_value)
@@ -223,9 +223,9 @@ def cal_vi():
         print(str(ac_year))
         for row in range(1, 31):
             # CO2
-            epsilon_ = table.cell_value(38 + row - 1, 1)
-            sigma_ = table2.cell_value(19, 1)
-            lambda_ = table2.cell_value(23, 1)
+            epsilon_ = float(table.cell_value(38 + row - 1, 1))
+            sigma_ = float(table2.cell_value(18, 1))
+            lambda_ = float(table2.cell_value(22, 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_
@@ -236,9 +236,9 @@ def cal_vi():
             dst_ws.write(row, 7, vi)
 
             # CAPITAL
-            epsilon_ = table.cell_value(106 + row - 1, 1)
-            sigma_ = table2.cell_value(52, 1)
-            lambda_ = table2.cell_value(56, 1)
+            epsilon_ = float(table.cell_value(106 + row - 1, 1))
+            sigma_ = float(table2.cell_value(50, 1))
+            lambda_ = float(table2.cell_value(54, 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_
@@ -249,9 +249,9 @@ def cal_vi():
             dst_ws.write(row, 8, vi)
 
             # LABOUR
-            epsilon_ = table.cell_value(174 + row - 1, 1)
-            sigma_ = table2.cell_value(85, 1)
-            lambda_ = table2.cell_value(89, 1)
+            epsilon_ = float(table.cell_value(174 + row - 1, 1))
+            sigma_ = float(table2.cell_value(82, 1))
+            lambda_ = float(table2.cell_value(86, 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_
