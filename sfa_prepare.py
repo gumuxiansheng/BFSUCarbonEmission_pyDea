@@ -72,9 +72,31 @@ def sfa_result_rearrange():
         f = open('RFrontierOutputFiles/_sfa_out' + str(ac_year) + '.txt', encoding='utf-8')  # 返回一个文件对象
         line = f.readline()
         row_num = 0
+        is_entering_estimates = False
         while line:
             line = f.readline()
-            ws.write(row_num, 0, line)
+            if line.startswith('---'):
+                is_entering_estimates = False
+
+            if not is_entering_estimates:
+                ws.write(row_num, 0, line)
+            else:
+                str1 = line[0:22]
+                str2 = line[22:35]
+                str3 = line[35:46]
+                str4 = line[46:58]
+                str5 = line[58:68]
+                str6 = line[68:71]
+                ws.write(row_num, 0, str1)
+                ws.write(row_num, 1, str2)
+                ws.write(row_num, 2, str3)
+                ws.write(row_num, 3, str4)
+                ws.write(row_num, 4, str5)
+                ws.write(row_num, 5, str6)
+
+            if line.startswith('final maximum'):
+                is_entering_estimates = True
+
             row_num += 1
         f.close()
     wbw.save('RFrontierOutputFiles/_sfa_out.xls')
@@ -89,9 +111,37 @@ def sfa_result_xx_rearrange():
         f = open('RFrontierOutputFiles/_sfa_out_xx' + str(ac_year) + '.txt', encoding='utf-8')  # 返回一个文件对象
         line = f.readline()
         row_num = 0
+        entering_status = 0
         while line:
             line = f.readline()
-            ws.write(row_num, 0, line)
+            if line.startswith('$fitted'):
+                entering_status = 1
+                ws.write(row_num, 0, line)
+                row_num += 1
+                continue
+            elif line.startswith('$resid'):
+                entering_status = 2
+                ws.write(row_num, 0, line)
+                row_num += 1
+                continue
+            elif line == '\n':
+                entering_status = 0
+                ws.write(row_num, 0, line)
+                row_num += 1
+                continue
+
+            if entering_status == 0:
+                ws.write(row_num, 0, line)
+            elif entering_status == 1:
+                str1 = line[0:6]
+                str2 = line[6:]
+                ws.write(row_num, 0, str1)
+                ws.write(row_num, 1, str2)
+            elif entering_status == 2:
+                str1 = line[0:3]
+                str2 = line[3:]
+                ws.write(row_num, 0, str1)
+                ws.write(row_num, 1, str2)
             row_num += 1
         f.close()
     wbw.save('RFrontierOutputFiles/_sfa_out_xx.xls')
