@@ -7,24 +7,24 @@ log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
-                         Estimate  Std. Error     z value Pr(>|z|)    
-(Intercept)           -1.3347e+04  1.0000e+00 -1.3347e+04   <2e-16 ***
-Secondary_Industry     7.7920e+04  1.0000e+00  7.7920e+04   <2e-16 ***
-Capita_GDP             8.7278e-02  1.6906e-01  5.1620e-01   0.6057    
-Environmental_Support -1.5005e+06  1.0000e+00 -1.5005e+06   <2e-16 ***
-Coal_Consume           4.0987e+04  1.0000e+00  4.0987e+04   <2e-16 ***
-sigmaSq                7.1613e+08  1.0000e+00  7.1613e+08   <2e-16 ***
-gamma                  3.6578e-02  1.6812e-01  2.1760e-01   0.8278    
-sigmaSqU               2.6195e+07  1.2039e+08  2.1760e-01   0.8278    
-sigmaSqV               6.8994e+08  1.2039e+08  5.7307e+00    1e-08 ***
-sigma                  2.6761e+04  1.8684e-05  1.4323e+09   <2e-16 ***
-sigmaU                 5.1181e+03  1.1762e+04  4.3520e-01   0.6635    
-sigmaV                 2.6267e+04  2.2918e+03  1.1461e+01   <2e-16 ***
-lambdaSq               3.7967e-02  1.8112e-01  2.0960e-01   0.8340    
-lambda                 1.9485e-01  4.6478e-01  4.1920e-01   0.6750    
+                      Estimate  Std. Error     z value  Pr(>|z|)    
+(Intercept)         6.3264e+03  1.0000e+00  6.3263e+03 < 2.2e-16 ***
+Urbanization       -9.7222e+04  1.0000e+00 -9.7222e+04 < 2.2e-16 ***
+Secondary_Industry  6.9778e+04  1.0000e+00  6.9778e+04 < 2.2e-16 ***
+Capita_GDP          6.2679e-01  1.7696e-01  3.5420e+00 0.0003971 ***
+Coal_Consume        4.0706e+04  1.0000e+00  4.0706e+04 < 2.2e-16 ***
+sigmaSq             7.8627e+08  1.0000e+00  7.8627e+08 < 2.2e-16 ***
+gamma               3.6650e-02  1.6812e-01  2.1800e-01 0.8274290    
+sigmaSqU            2.8817e+07  1.3219e+08  2.1800e-01 0.8274290    
+sigmaSqV            7.5745e+08  1.3219e+08  5.7301e+00 1.004e-08 ***
+sigma               2.8041e+04  1.7831e-05  1.5725e+09 < 2.2e-16 ***
+sigmaU              5.3682e+03  1.2312e+04  4.3600e-01 0.6628365    
+sigmaV              2.7522e+04  2.4015e+03  1.1460e+01 < 2.2e-16 ***
+lambdaSq            3.8045e-02  1.8116e-01  2.1000e-01 0.8336596    
+lambda              1.9505e-01  4.6438e-01  4.2000e-01 0.6744703    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -347.9338 
+log likelihood value: -349.3352 
 
 cross-sectional data
 total number of observations = 30 
@@ -39,24 +39,24 @@ log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
-                         Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)           -4.5948e+03  1.0003e+00 -4.5937e+03 < 2.2e-16 ***
-Secondary_Industry     3.6732e+04  1.0001e+00  3.6731e+04 < 2.2e-16 ***
-Capita_GDP             8.2222e-02  5.8224e-02  1.4122e+00    0.1579    
-Environmental_Support -5.4500e+05  1.0000e+00 -5.4500e+05 < 2.2e-16 ***
-Coal_Consume           6.9162e+02  1.0002e+00  6.9151e+02 < 2.2e-16 ***
-sigmaSq                7.9442e+07  1.0000e+00  7.9442e+07 < 2.2e-16 ***
-gamma                  4.0960e-02  1.8510e-01  2.2130e-01    0.8249    
-sigmaSqU               3.2539e+06  1.4705e+07  2.2130e-01    0.8249    
-sigmaSqV               7.6188e+07  1.4705e+07  5.1811e+00 2.206e-07 ***
-sigma                  8.9130e+03  5.6098e-05  1.5888e+08 < 2.2e-16 ***
-sigmaU                 1.8039e+03  4.0759e+03  4.4260e-01    0.6581    
-sigmaV                 8.7286e+03  8.4234e+02  1.0362e+01 < 2.2e-16 ***
-lambdaSq               4.2709e-02  2.0125e-01  2.1220e-01    0.8319    
-lambda                 2.0666e-01  4.8691e-01  4.2440e-01    0.6712    
+                      Estimate  Std. Error     z value  Pr(>|z|)    
+(Intercept)         1.7252e+04  1.0002e+00  1.7249e+04 < 2.2e-16 ***
+Urbanization       -6.8410e+04  1.0000e+00 -6.8408e+04 < 2.2e-16 ***
+Secondary_Industry  2.7858e+04  1.0000e+00  2.7857e+04 < 2.2e-16 ***
+Capita_GDP          4.2516e-01  5.9923e-02  7.0951e+00 1.293e-12 ***
+Coal_Consume       -4.3949e+02  1.0001e+00 -4.3944e+02 < 2.2e-16 ***
+sigmaSq             8.5088e+07  1.0000e+00  8.5088e+07 < 2.2e-16 ***
+gamma               4.0269e-02  1.8233e-01  2.2090e-01    0.8252    
+sigmaSqU            3.4264e+06  1.5514e+07  2.2090e-01    0.8252    
+sigmaSqV            8.1662e+07  1.5514e+07  5.2637e+00 1.412e-07 ***
+sigma               9.2243e+03  5.4204e-05  1.7018e+08 < 2.2e-16 ***
+sigmaU              1.8511e+03  4.1906e+03  4.4170e-01    0.6587    
+sigmaV              9.0367e+03  8.5840e+02  1.0527e+01 < 2.2e-16 ***
+lambdaSq            4.1958e-02  1.9795e-01  2.1200e-01    0.8321    
+lambda              2.0484e-01  4.8319e-01  4.2390e-01    0.6716    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -314.9479 
+log likelihood value: -315.9783 
 
 cross-sectional data
 total number of observations = 30 
@@ -66,29 +66,29 @@ mean efficiency: NaN
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 6 iterations:
+Iterative ML estimation terminated after 4 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
-                         Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)            2.1447e+03  6.4936e+01  3.3028e+01 < 2.2e-16 ***
-Secondary_Industry     9.9319e+03  2.9758e+01  3.3376e+02 < 2.2e-16 ***
-Capita_GDP            -2.3514e-02  9.1685e-03 -2.5647e+00   0.01033 *  
-Environmental_Support -1.4604e+05  1.2715e+00 -1.1486e+05 < 2.2e-16 ***
-Coal_Consume          -2.6070e+03  5.2079e+01 -5.0058e+01 < 2.2e-16 ***
-sigmaSq                2.1314e+06  1.0008e+00  2.1298e+06 < 2.2e-16 ***
-gamma                  4.0564e-02  1.8870e-01  2.1500e-01   0.82980    
-sigmaSqU               8.6458e+04  4.0220e+05  2.1500e-01   0.82980    
-sigmaSqV               2.0449e+06  4.0220e+05  5.0843e+00 3.689e-07 ***
-sigma                  1.4599e+03  3.4274e-04  4.2596e+06 < 2.2e-16 ***
-sigmaU                 2.9404e+02  6.8393e+02  4.2990e-01   0.66725    
-sigmaV                 1.4300e+03  1.4063e+02  1.0169e+01 < 2.2e-16 ***
-lambdaSq               4.2279e-02  2.0500e-01  2.0620e-01   0.83660    
-lambda                 2.0562e-01  4.9849e-01  4.1250e-01   0.67999    
+                      Estimate  Std. Error     z value  Pr(>|z|)    
+(Intercept)         3.5664e+03  1.0021e+00  3.5589e+03 < 2.2e-16 ***
+Urbanization       -8.3158e+03  1.0002e+00 -8.3138e+03 < 2.2e-16 ***
+Secondary_Industry  9.3447e+03  1.0004e+00  9.3407e+03 < 2.2e-16 ***
+Capita_GDP          2.4011e-02  1.0928e-02  2.1971e+00   0.02801 *  
+Coal_Consume       -2.5983e+03  1.0013e+00 -2.5948e+03 < 2.2e-16 ***
+sigmaSq             2.8172e+06  1.0000e+00  2.8172e+06 < 2.2e-16 ***
+gamma               4.2694e-02  1.8914e-01  2.2570e-01   0.82141    
+sigmaSqU            1.2028e+05  5.3285e+05  2.2570e-01   0.82141    
+sigmaSqV            2.6970e+06  5.3285e+05  5.0614e+00 4.161e-07 ***
+sigma               1.6785e+03  2.9789e-04  5.6345e+06 < 2.2e-16 ***
+sigmaU              3.4681e+02  7.6820e+02  4.5150e-01   0.65166    
+sigmaV              1.6422e+03  1.6223e+02  1.0123e+01 < 2.2e-16 ***
+lambdaSq            4.4598e-02  2.0638e-01  2.1610e-01   0.82892    
+lambda              2.1118e-01  4.8864e-01  4.3220e-01   0.66561    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -260.6738 
+log likelihood value: -264.8572 
 
 cross-sectional data
 total number of observations = 30 

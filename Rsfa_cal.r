@@ -22,7 +22,7 @@ for (year in 2006:2016) {
 }
 
 # There's something wrong when run this in for.
-year <- 2016
+year <- 2006
 data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
 sfa_data_co2 <- sfa( (-Slack_CO2) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume | -1, data = data1 )
 sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume | -1, data = data1 )

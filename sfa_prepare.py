@@ -81,12 +81,12 @@ def sfa_result_rearrange():
             if not is_entering_estimates:
                 ws.write(row_num, 0, line)
             else:
-                str1 = line[0:22]
-                str2 = line[22:35]
-                str3 = line[35:46]
-                str4 = line[46:58]
-                str5 = line[58:68]
-                str6 = line[68:71]
+                str1 = line[0:19]
+                str2 = line[19:32]
+                str3 = line[32:43]
+                str4 = line[43:55]
+                str5 = line[55:65]
+                str6 = line[65:]
                 ws.write(row_num, 0, str1)
                 ws.write(row_num, 1, str2)
                 ws.write(row_num, 2, str3)
