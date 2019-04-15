@@ -2,29 +2,30 @@
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 5 iterations:
+Iterative ML estimation terminated after 7 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
                       Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)         1.7957e+04  1.0003e+00  1.7951e+04 < 2.2e-16 ***
-Urbanization       -1.8490e+05  1.0000e+00 -1.8490e+05 < 2.2e-16 ***
-Secondary_Industry  1.2984e+05  1.0001e+00  1.2983e+05 < 2.2e-16 ***
-Capita_GDP          1.3118e+00  1.9447e-01  6.7456e+00 1.524e-11 ***
-Coal_Consume       -5.8120e+02  1.0002e+00 -5.8109e+02 < 2.2e-16 ***
-sigmaSq             6.1281e+08  1.0000e+00  6.1281e+08 < 2.2e-16 ***
-gamma               4.2973e-02  1.8818e-01  2.2840e-01    0.8194    
-sigmaSqU            2.6334e+07  1.1532e+08  2.2840e-01    0.8194    
-sigmaSqV            5.8647e+08  1.1532e+08  5.0856e+00 3.664e-07 ***
-sigma               2.4755e+04  2.0198e-05  1.2256e+09 < 2.2e-16 ***
-sigmaU              5.1317e+03  1.1236e+04  4.5670e-01    0.6479    
-sigmaV              2.4217e+04  2.3809e+03  1.0171e+01 < 2.2e-16 ***
-lambdaSq            4.4903e-02  2.0546e-01  2.1850e-01    0.8270    
-lambda              2.1190e-01  4.8480e-01  4.3710e-01    0.6620    
+(Intercept)         1.8971e+04  1.0003e+00  1.8966e+04 < 2.2e-16 ***
+Urbanization       -1.9283e+05  1.0000e+00 -1.9283e+05 < 2.2e-16 ***
+Secondary_Industry  1.3034e+05  1.0001e+00  1.3033e+05 < 2.2e-16 ***
+Capita_GDP          1.3383e+00  2.5890e-01  5.1694e+00 2.348e-07 ***
+Coal_Consume       -2.0504e+03  1.0002e+00 -2.0501e+03 < 2.2e-16 ***
+People_Density      1.8791e+00  8.4880e+00  2.2140e-01    0.8248    
+sigmaSq             6.1027e+08  1.0000e+00  6.1027e+08 < 2.2e-16 ***
+gamma               4.2201e-02  2.0015e-01  2.1090e-01    0.8330    
+sigmaSqU            2.5754e+07  1.2214e+08  2.1090e-01    0.8330    
+sigmaSqV            5.8452e+08  1.2214e+08  4.7855e+00 1.705e-06 ***
+sigma               2.4704e+04  2.0240e-05  1.2205e+09 < 2.2e-16 ***
+sigmaU              5.0749e+03  1.2034e+04  4.2170e-01    0.6732    
+sigmaV              2.4177e+04  2.5260e+03  9.5710e+00 < 2.2e-16 ***
+lambdaSq            4.4060e-02  2.1817e-01  2.0200e-01    0.8400    
+lambda              2.0991e-01  5.1969e-01  4.0390e-01    0.6863    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -345.5918 
+log likelihood value: -345.5294 
 
 cross-sectional data
 total number of observations = 30 
@@ -34,29 +35,30 @@ mean efficiency: NaN
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 5 iterations:
+Iterative ML estimation terminated after 6 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
                       Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)         3.4859e+03  1.0004e+00  3.4843e+03 < 2.2e-16 ***
-Urbanization       -3.5967e+04  1.0000e+00 -3.5965e+04 < 2.2e-16 ***
-Secondary_Industry  2.2742e+04  1.0001e+00  2.2739e+04 < 2.2e-16 ***
-Capita_GDP          3.2322e-01  5.2057e-02  6.2090e+00 5.332e-10 ***
-Coal_Consume       -8.7681e+02  1.0003e+00 -8.7656e+02 < 2.2e-16 ***
-sigmaSq             4.4435e+07  1.0000e+00  4.4435e+07 < 2.2e-16 ***
-gamma               4.0653e-02  1.8118e-01  2.2440e-01    0.8225    
-sigmaSqU            1.8064e+06  8.0507e+06  2.2440e-01    0.8225    
-sigmaSqV            4.2628e+07  8.0507e+06  5.2950e+00 1.190e-07 ***
-sigma               6.6659e+03  7.5008e-05  8.8870e+07 < 2.2e-16 ***
-sigmaU              1.3440e+03  2.9950e+03  4.4880e-01    0.6536    
-sigmaV              6.5290e+03  6.1653e+02  1.0590e+01 < 2.2e-16 ***
-lambdaSq            4.2376e-02  1.9686e-01  2.1530e-01    0.8296    
-lambda              2.0585e-01  4.7816e-01  4.3050e-01    0.6668    
+(Intercept)         1.2103e+04  1.0000e+00  1.2103e+04 < 2.2e-16 ***
+Urbanization       -6.2996e+04  1.0000e+00 -6.2996e+04 < 2.2e-16 ***
+Secondary_Industry  2.8423e+04  1.0000e+00  2.8423e+04 < 2.2e-16 ***
+Capita_GDP          3.6083e-01  6.2959e-02  5.7311e+00 9.978e-09 ***
+Coal_Consume       -3.1280e+03  1.0000e+00 -3.1279e+03 < 2.2e-16 ***
+People_Density      5.6341e+00  2.1057e+00  2.6756e+00   0.00746 ** 
+sigmaSq             3.7701e+07  1.0000e+00  3.7701e+07 < 2.2e-16 ***
+gamma               3.7327e-02  1.8277e-01  2.0420e-01   0.83817    
+sigmaSqU            1.4073e+06  6.8905e+06  2.0420e-01   0.83817    
+sigmaSqV            3.6294e+07  6.8905e+06  5.2672e+00 1.385e-07 ***
+sigma               6.1401e+03  8.1432e-05  7.5402e+07 < 2.2e-16 ***
+sigmaU              1.1863e+03  2.9043e+03  4.0850e-01   0.68293    
+sigmaV              6.0244e+03  5.7188e+02  1.0534e+01 < 2.2e-16 ***
+lambdaSq            3.8774e-02  1.9721e-01  1.9660e-01   0.84413    
+lambda              1.9691e-01  5.0077e-01  3.9320e-01   0.69416    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -306.2334 
+log likelihood value: -303.7698 
 
 cross-sectional data
 total number of observations = 30 
@@ -66,29 +68,30 @@ mean efficiency: NaN
 Efficiency Effects Frontier (see Battese & Coelli 1995)
 Inefficiency decreases the endogenous variable (as in a production function)
 The dependent variable is logged
-Iterative ML estimation terminated after 5 iterations:
+Iterative ML estimation terminated after 6 iterations:
 log likelihood values and parameters of two successive iterations
 are within the tolerance limit
 
 final maximum likelihood estimates
                       Estimate  Std. Error     z value  Pr(>|z|)    
-(Intercept)         1.6101e+03  1.0205e+00  1.5778e+03 < 2.2e-16 ***
-Urbanization       -6.4412e+03  1.0017e+00 -6.4301e+03 < 2.2e-16 ***
-Secondary_Industry  7.3172e+03  1.0053e+00  7.2783e+03 < 2.2e-16 ***
-Capita_GDP          2.7874e-02  1.3080e-02  2.1311e+00   0.03308 *  
-Coal_Consume       -6.8632e+02  1.0126e+00 -6.7776e+02 < 2.2e-16 ***
-sigmaSq             2.8169e+06  1.0000e+00  2.8169e+06 < 2.2e-16 ***
-gamma               4.3048e-02  1.8704e-01  2.3010e-01   0.81798    
-sigmaSqU            1.2126e+05  5.2689e+05  2.3010e-01   0.81798    
-sigmaSqV            2.6957e+06  5.2689e+05  5.1162e+00 3.118e-07 ***
-sigma               1.6784e+03  2.9791e-04  5.6339e+06 < 2.2e-16 ***
-sigmaU              3.4823e+02  7.5653e+02  4.6030e-01   0.64530    
-sigmaV              1.6419e+03  1.6046e+02  1.0232e+01 < 2.2e-16 ***
-lambdaSq            4.4984e-02  2.0425e-01  2.2020e-01   0.82568    
-lambda              2.1209e-01  4.8151e-01  4.4050e-01   0.65959    
+(Intercept)         2.8278e+03  1.0132e+00  2.7910e+03 < 2.2e-16 ***
+Urbanization       -1.0234e+04  1.0011e+00 -1.0223e+04 < 2.2e-16 ***
+Secondary_Industry  8.0242e+03  1.0032e+00  7.9987e+03 < 2.2e-16 ***
+Capita_GDP          3.4403e-02  1.7048e-02  2.0180e+00   0.04359 *  
+Coal_Consume       -1.0095e+03  1.0078e+00 -1.0016e+03 < 2.2e-16 ***
+People_Density      7.4435e-01  5.6241e-01  1.3235e+00   0.18567    
+sigmaSq             2.6936e+06  1.0000e+00  2.6936e+06 < 2.2e-16 ***
+gamma               4.2162e-02  1.9844e-01  2.1250e-01   0.83175    
+sigmaSqU            1.1357e+05  5.3452e+05  2.1250e-01   0.83175    
+sigmaSqV            2.5800e+06  5.3452e+05  4.8268e+00 1.388e-06 ***
+sigma               1.6412e+03  3.0465e-04  5.3871e+06 < 2.2e-16 ***
+sigmaU              3.3699e+02  7.9307e+02  4.2490e-01   0.67089    
+sigmaV              1.6062e+03  1.6639e+02  9.6536e+00 < 2.2e-16 ***
+lambdaSq            4.4018e-02  2.1630e-01  2.0350e-01   0.83874    
+lambda              2.0980e-01  5.1547e-01  4.0700e-01   0.68400    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-log likelihood value: -264.8555 
+log likelihood value: -264.1837 
 
 cross-sectional data
 total number of observations = 30 
