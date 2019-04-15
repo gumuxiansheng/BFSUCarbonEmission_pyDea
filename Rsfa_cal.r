@@ -22,7 +22,8 @@ for (year in 2006:2016) {
 }
 
 # There's something wrong when run this in for.
-year <- 2006
+# year <- 2006
+for (year in 2006:2016) {
 data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
 sfa_data_co2 <- sfa( (-Slack_CO2) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume | -1, data = data1 )
 sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume | -1, data = data1 )
@@ -36,7 +37,10 @@ summary(sfa_data_capital, extraPar=TRUE)
 print('\n**Labour**\n\n')
 summary(sfa_data_work, extraPar=TRUE)
 print(paste('********', year, ' END********\n\n', sep = ""))
+
+Sys.sleep(2)
 sink()
+}
 
 # 
 # epsilon <- 0.286
