@@ -30,7 +30,7 @@ def generate_sfa_input():
         new_table = xlcopy(table)
         ws = new_table.get_sheet(0)
 
-        slack_co2_col = 7
+        slack_co2_col = 10
         slack_work_col = slack_co2_col + 1
         slack_capital_col = slack_work_col + 1
         slack_gdp_col = slack_capital_col + 1
@@ -208,6 +208,16 @@ def cal_vi():
 
     dst_file = xlrd.open_workbook(filename='RFrontierOutputFiles/_3rd_dea_input_cal.xls')  # 写入统一文件
     dst_file_new = xlcopy(dst_file)
+
+    sigma_index = []
+    lambda_index = []
+    table_temp = wbw2.sheet_by_name(str(2016))
+    for i in range(0, table_temp.nrows):
+        if str(table_temp.cell_value(i, 0)).startswith('sigma '):
+            sigma_index.append(i)
+        elif str(table_temp.cell_value(i, 0)).startswith('lambda '):
+            lambda_index.append(i)
+
     for year in range(0, 11):
         ac_year = 2016 - year
         table = wbw.sheet_by_name(str(ac_year))
@@ -229,8 +239,8 @@ def cal_vi():
         for row in range(1, 31):
             # CO2
             epsilon_ = float(table.cell_value(38 + row - 1, 1))
-            sigma_ = float(table2.cell_value(18, 1))
-            lambda_ = float(table2.cell_value(22, 1))
+            sigma_ = float(table2.cell_value(sigma_index[0], 1))
+            lambda_ = float(table2.cell_value(lambda_index[0], 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_
@@ -242,8 +252,8 @@ def cal_vi():
 
             # CAPITAL
             epsilon_ = float(table.cell_value(106 + row - 1, 1))
-            sigma_ = float(table2.cell_value(50, 1))
-            lambda_ = float(table2.cell_value(54, 1))
+            sigma_ = float(table2.cell_value(sigma_index[1], 1))
+            lambda_ = float(table2.cell_value(lambda_index[1], 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_
@@ -255,8 +265,8 @@ def cal_vi():
 
             # LABOUR
             epsilon_ = float(table.cell_value(174 + row - 1, 1))
-            sigma_ = float(table2.cell_value(82, 1))
-            lambda_ = float(table2.cell_value(86, 1))
+            sigma_ = float(table2.cell_value(sigma_index[2], 1))
+            lambda_ = float(table2.cell_value(lambda_index[2], 1))
             norm_divide = norm.pdf(epsilon_ * lambda_ / sigma_) / (norm.cdf(epsilon_ * lambda_ / sigma_))
             if np.isnan(norm_divide):
                 norm_divide = -epsilon_ * lambda_ / sigma_

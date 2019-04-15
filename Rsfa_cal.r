@@ -26,12 +26,12 @@ cal_sfa_in<-function(){
 }
 
 # There's something wrong when run this in for.
-year <- 2006
+year <- 2016
 # for (year in 2006:2016) {
 data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
-sfa_data_co2 <- sfa( (-Slack_CO2) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density | -1, data = data1 )
-sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density | -1, data = data1 )
-sfa_data_work <- sfa( (-Slack_WORK) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density | -1, data = data1 )
+sfa_data_co2 <- sfa( (-Slack_CO2) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density + Car_Ownership + Energy_Invest + Resource_Tax | -1, data = data1 )
+sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density + Car_Ownership + Energy_Invest + Resource_Tax | -1, data = data1 )
+sfa_data_work <- sfa( (-Slack_WORK) ~ Urbanization + Secondary_Industry + Capita_GDP + Coal_Consume + People_Density + Car_Ownership + Energy_Invest + Resource_Tax | -1, data = data1 )
 
 sink(paste('RFrontierOutputFiles/_sfa_out', year, '.txt', sep = ""))
 print(paste('********', year, '********\n\n**CO2**\n\n', sep = ""))
