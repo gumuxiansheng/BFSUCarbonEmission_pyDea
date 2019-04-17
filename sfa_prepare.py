@@ -47,7 +47,7 @@ def generate_sfa_input():
             if one_row > 26:
                 row = one_row - 1
 
-            row_num = 185 + (row - 1) * 6
+            row_num = 2 + (row - 1) * 6
             # Calculate CO2
             slack = table2.cell_value(row_num, 3) - table2.cell_value(row_num, 2)
             ws.write(row, slack_co2_col, slack)
@@ -78,6 +78,7 @@ def sfa_result_rearrange():
         line = f.readline()
         row_num = 0
         is_entering_estimates = False
+        splits_indexes = []
         while line:
             line = f.readline()
             if line.startswith('---'):
@@ -86,18 +87,25 @@ def sfa_result_rearrange():
             if not is_entering_estimates:
                 ws.write(row_num, 0, line)
             else:
-                str1 = line[0:19]
-                str2 = line[19:32]
-                str3 = line[32:43]
-                str4 = line[43:55]
-                str5 = line[55:65]
-                str6 = line[65:]
-                ws.write(row_num, 0, str1)
-                ws.write(row_num, 1, str2)
-                ws.write(row_num, 2, str3)
-                ws.write(row_num, 3, str4)
-                ws.write(row_num, 4, str5)
-                ws.write(row_num, 5, str6)
+                splits_indexes.clear()
+                for i in range(1, len(line) - 1):
+                    if line[i] == ' ' and line[i + 1] != ' ' and line[i - 1] != '<':
+                        splits_indexes.append(i)
+                        print(splits_indexes)
+
+                if len(splits_indexes) > 0:
+                    str1 = line[0:splits_indexes[0]]
+                    str2 = line[splits_indexes[0]:splits_indexes[1]]
+                    str3 = line[splits_indexes[1]:splits_indexes[2]]
+                    str4 = line[splits_indexes[2]:splits_indexes[3]]
+                    str5 = line[splits_indexes[3]:splits_indexes[4]]
+                    str6 = line[splits_indexes[4]:]
+                    ws.write(row_num, 0, str1)
+                    ws.write(row_num, 1, str2)
+                    ws.write(row_num, 2, str3)
+                    ws.write(row_num, 3, str4)
+                    ws.write(row_num, 4, str5)
+                    ws.write(row_num, 5, str6)
 
             if line.startswith('final maximum'):
                 is_entering_estimates = True
@@ -301,6 +309,7 @@ def generate_adjusted_dea_input():
             fitted_surplus = sheet_fitted.cell_value(1, 4) - sheet_fitted.cell_value(row, 1)
             vi_surplus = sheet_fitted.cell_value(1, 10) - sheet_fitted.cell_value(row, 7)
             adjusted_value = origin_value + fitted_surplus + vi_surplus
+            # adjusted_value = origin_value + fitted_surplus
             sheet.write(row, 3, adjusted_value)
 
             # CAPITAL
@@ -308,6 +317,7 @@ def generate_adjusted_dea_input():
             fitted_surplus = sheet_fitted.cell_value(1, 5) - sheet_fitted.cell_value(row, 2)
             vi_surplus = sheet_fitted.cell_value(1, 11) - sheet_fitted.cell_value(row, 8)
             adjusted_value = origin_value + fitted_surplus + vi_surplus
+            # adjusted_value = origin_value + fitted_surplus
             sheet.write(row, 2, adjusted_value)
 
             # CAPITAL
@@ -315,8 +325,16 @@ def generate_adjusted_dea_input():
             fitted_surplus = sheet_fitted.cell_value(1, 6) - sheet_fitted.cell_value(row, 3)
             vi_surplus = sheet_fitted.cell_value(1, 12) - sheet_fitted.cell_value(row, 9)
             adjusted_value = origin_value + fitted_surplus + vi_surplus
+            # adjusted_value = origin_value + fitted_surplus
             sheet.write(row, 4, adjusted_value)
 
         dst_file_new.save('pyDEAThirdStageInputFiles/_dea' + str(ac_year) + '.xls')
     return
 
+
+def work_():
+    sfa_result_rearrange()
+    sfa_result_xx_rearrange()
+    generate_3rd_dea_input_cal()
+    cal_vi()
+    generate_adjusted_dea_input()
