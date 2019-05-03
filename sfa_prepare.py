@@ -47,7 +47,7 @@ def generate_sfa_input():
             if one_row > 26:
                 row = one_row - 1
 
-            row_num = 2 + (row - 1) * 6
+            row_num = 185 + (row - 1) * 6
             # Calculate CO2
             slack = table2.cell_value(row_num, 3) - table2.cell_value(row_num, 2)
             ws.write(row, slack_co2_col, slack)
