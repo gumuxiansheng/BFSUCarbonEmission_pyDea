@@ -146,7 +146,8 @@ def arrange_regional():
         tables = []
         for year in range(2006, 2017):
             index = year - 2006
-            tables.append(read_table('pyDEARegionalOutputFiles/' + orient_str + '/out_dea_' + orient_str.lower() + '_' + str(year) + '.xls'))
+            tables.append(read_table(
+                'pyDEARegionalOutputFiles/' + orient_str + '/out_dea_' + orient_str.lower() + '_' + str(year) + '.xls'))
 
             for row in range(0, tables[index].nrows):
                 if index == 0:
@@ -207,7 +208,7 @@ def last_arrange():
             if row == 0:
                 ws.write(row, index + 12, str(year) + '年')
             elif row == 1:
-                    ws.write(row, index + 12, 'Rank')
+                ws.write(row, index + 12, 'Rank')
             else:
                 value = tables[index].cell_value(row, 1)
                 if isinstance(value, float):
@@ -217,4 +218,42 @@ def last_arrange():
                         ws.write(row, index + 12, values2.index(value) + 1)
 
     wb.save('三阶段各省各年份碳排放效率对比表.xls')
+    return
+
+
+def sbm_arrange(is_first_stage):
+    tables = []
+    if is_first_stage:
+        file_folder = 'OSDEA_Output'
+    else:
+        file_folder = 'OSDEA_ThirdStageOutput'
+    for year in range(2006, 2017):
+        index = year - 2006
+        tables.append(
+            read_table('/Users/mikezhu/Dev/Java/OSDEA_Extend/' + file_folder + '/out_dea' + str(year) + '.xls'))
+        values1 = []
+        for row in range(0, 32):
+            if index == 0:
+                ws.write(row, 0, tables[index].cell_value(row, 0))
+
+            if row == 0:
+                ws.write(row, index + 1, str(year) + '年')
+            else:
+                value = tables[index].cell_value(row, 1)
+                ws.write(row, index + 1, value)
+                if isinstance(value, float):
+                    values1.append(value)
+
+        values1 = sorted(values1, reverse=True)
+        for row in range(0, 32):
+            if row == 0:
+                ws.write(row, index + 12, str(year) + '年')
+            elif row == 1:
+                ws.write(row, index + 12, 'Rank')
+            else:
+                value = tables[index].cell_value(row, 1)
+                if isinstance(value, float):
+                    ws.write(row, index + 12, values1.index(value) + 1)
+
+    wb.save('/Users/mikezhu/Dev/Java/OSDEA_Extend/' + file_folder + '/SBM各省各年份碳排放效率对比表.xls')
     return

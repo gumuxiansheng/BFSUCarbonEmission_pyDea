@@ -1,13 +1,14 @@
 library(readxl)
 library(frontier)
 
+file_url_base <- '/Users/mikezhu/Dev/Java/OSDEA_Extend/'
 for (year in 2006:2016) {
-  data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
-  sfa_data_co2 <- sfa( (-Slack_CO2) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
-  sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
-  sfa_data_work <- sfa( (-Slack_WORK) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
+  data1 <- read_excel(paste(file_url_base, 'RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
+  # sfa_data_co2 <- sfa( (-Slack_CO2) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
+  sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
+  sfa_data_work <- sfa( (-Slack_WORK) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
 
-  sink(paste('RFrontierOutputFiles/_sfa_out_xx', year, '.txt', sep = ""))
+  sink(paste(file_url_base, 'RFrontierOutputFiles/_sfa_out_xx', year, '.txt', sep = ""))
   cat(paste('--------', year, '---------\n\n**CO2**\n\n', sep = ""))
   print(sfa_data_co2['fitted'][1])
   print(sfa_data_co2['resid'][1])
@@ -28,12 +29,12 @@ cal_sfa_in<-function(){
 # There's something wrong when run this in for.
 year <- 2016
 # for (year in 2006:2016) {
-data1 <- read_excel(paste('RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
-sfa_data_co2 <- sfa( (-Slack_CO2) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
-sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
-sfa_data_work <- sfa( (-Slack_WORK) ~ Secondary_Industry + Car_Ownership | -1, data = data1 )
+data1 <- read_excel(paste(file_url_base, 'RFrontierInputFiles/_sfa_in', year, '.xls', sep = ""))
+# sfa_data_co2 <- sfa( (-Slack_CO2) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
+sfa_data_capital <- sfa( (-Slack_CAPITAL) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
+sfa_data_work <- sfa( (-Slack_WORK) ~ Secondary_Industry + Urbanization + Environmental_Support + Coal_Consume | -1, data = data1 )
 
-sink(paste('RFrontierOutputFiles/_sfa_out', year, '.txt', sep = ""))
+sink(paste(file_url_base, 'RFrontierOutputFiles/_sfa_out', year, '.txt', sep = ""))
 print(paste('********', year, '********\n\n**CO2**\n\n', sep = ""))
 summary(sfa_data_co2, extraPar=TRUE)
 print('\n**Capital**\n\n')
